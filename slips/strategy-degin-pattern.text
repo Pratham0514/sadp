@@ -1,3 +1,7 @@
+
+/* save this by the name  Main.java  */
+
+
 interface DuckB
 {
 public void oper();

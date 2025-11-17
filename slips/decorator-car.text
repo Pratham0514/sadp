@@ -1,3 +1,7 @@
+
+/* save by the name  Main.java  */ 
+
+
 // Component Interface
 interface Car {
     void assemble();

@@ -1,3 +1,6 @@
+
+/*  save by the name  Main.java  */
+
 interface Command {
 public void execute();
 }

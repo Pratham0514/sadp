@@ -1,3 +1,5 @@
+/*  save by the name   Main.java   */
+
 interface Shape
 {
 void draw();
