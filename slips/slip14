@@ -1,4 +1,10 @@
 Q1]SADP
+Write a Java Program to implement Command Design Pattern for Command Interface 
+with execute() . Use this to create variety of commands for LightOnCommand, 
+LightOffCommand, GarageDoorUpCommand, StereoOnWithCDComman. 
+
+
+
 interface Command {
 public void execute();
 }
@@ -91,7 +97,10 @@ remote.buttonWasPressed();
 }
 ******************************
 Q2]IOT
- 
+Write a program to detects the vibration of an object with sensor using Arduino. 
+
+
+
 int vibrationSensorPin = A0; int 
 counter;          // count n samples  
 int newValue; 

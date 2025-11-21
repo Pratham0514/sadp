@@ -1,4 +1,9 @@
 Q1]SADP
+Write a JAVA Program to implement built-in support (java.util.Observable) Weather 
+station with members temperature, humidity, pressure and methods 
+mesurmentsChanged(), setMesurment(), getTemperature(), getHumidity(), 
+getPressure()
+
 
 import java.util.Observable;
 import java.util.Observer;
@@ -155,6 +160,7 @@ weatherData.setMeasurements(78, 90, 29.2f);
 
 *******************************
 q2]iot
+Write a program to detects the vibration of an object with sensor using Arduino. 
 
 int vibrationSensorPin = A0; int 
 counter;          // count n samples  

@@ -1,5 +1,5 @@
 Q1] SADP
-
+Write a Java Program to implement Singleton pattern for multithreading 
 
 
 
@@ -42,6 +42,9 @@ return sing;
 
 *********************************************
 Q2] iot
+Write a program to measure the distance using ultrasonic sensor and make LED blink 
+using Arduino. 
+
 int trigPin = D4;  
 int echoPin = D8;  
 void setup()  

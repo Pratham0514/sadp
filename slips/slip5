@@ -1,4 +1,7 @@
 Q1]SADP
+Write a Java Program to implement Adapter pattern for Enumeration iterator 
+
+
 import java.util.*;
 class EnumerationIterator implements Iterator {
 Enumeration enumeration;
@@ -28,6 +31,10 @@ System.out.println(iterator.next());
 
 ******************************
 Q2]iot
+Write a program to connect with the available Wi-Fi using Arduino. 
+
+
+
 #include <ESP8266WiFi.h>  
 // Replace with your actual Wi-Fi credentials const char* ssid = 
 "RedmiNote8Pro";        

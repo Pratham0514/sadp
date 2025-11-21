@@ -1,4 +1,6 @@
 Q1]SADP
+Write a program to connect with the available Wi-Fi using Arduino. 
+
 
 interface Shape
 {
@@ -88,6 +90,9 @@ shape4.draw();
 }
 *******************************
 Q2]IOT
+Write a program to get temperature notification using Arduino. 
+
+
 #include <DHT.h>  
 /*  Interfacing Temperature and Humidity Sensor (DHT11)-using One Wire 
 Protocol */  

@@ -1,4 +1,10 @@
 Q1]SADP
+Write a Java Program to implement an Adapter design pattern in mobile charger. 
+Define two classes – Volt (to measure volts) and Socket (producing constant volts of 
+120V). Build an adapter that can produce 3 volts, 12 volts and default 120 volts. 
+Implements Adapter pattern using Class Adapter 
+
+
 class Volt {
 private int volts;
 public Volt(int v) { this.volts=v; }
@@ -87,6 +93,10 @@ default: return sockAdapter.get120Volt();
 }
 ************************************
 Q2]IOT
+ Write a program to measure the distance using ultrasonic sensor and make LED blink    
+using Arduino.
+
+
 int trigPin = D4;  
 int echoPin = D8;  
 void setup()  

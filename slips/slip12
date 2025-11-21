@@ -1,4 +1,8 @@
 Q1]SADP
+ Write a Java Program to implement Decorator Pattern for interface Car to define the 
+assemble() method and then decorate it to Sports car and Luxury Car 
+
+
 // Component Interface
 interface Car {
     void assemble();
@@ -69,6 +73,9 @@ public class Main {
 
 *****************
 Q2]IOT
+Write a program to sense the available networks using Arduino 
+
+
 #include <ESP8266WiFi.h> void 
 setup() {  
   Serial.begin(115200);  

@@ -1,4 +1,6 @@
 Q1]SADP
+Write a Java Program to implement Facade Design Pattern for Home Theater
+
 
 class Amplifier {
     public void on() { System.out.println("Amplifier ON"); }
@@ -105,3 +107,29 @@ public class Main {
 
 *********************
 Q2]IOT
+Write a program to sense a finger when it is placed on the board Arduino. 
+
+
+// Single-file Arduino program to detect finger touch using TTP223 or touch module
+
+int touchPin = 2;      // Touch sensor output pin
+int ledPin = 13;       // LED built-in to show touch detection
+
+void setup() {
+  pinMode(touchPin, INPUT);
+  pinMode(ledPin, OUTPUT);
+  Serial.begin(9600);
+}
+
+void loop() {
+  int value = digitalRead(touchPin);   // Read touch sensor
+
+  if (value == HIGH) {  
+    Serial.println("Finger Detected!");
+    digitalWrite(ledPin, HIGH);
+  } else {
+    digitalWrite(ledPin, LOW);
+  }
+
+  delay(50);
+}

@@ -1,4 +1,10 @@
 Q1]SADP
+Write a Java Program to implement Factory method for Pizza Store with createPizza(), 
+orederPizza(), prepare(), Bake(), cut(), box(). Use this to create variety of pizza’s 
+like NyStyleCheesePizza, ChicagoStyleCheesePizza etc. 
+
+
+
 import java.util.*;
 
 // ---- Abstract Product: Pizza ----
@@ -121,3 +127,6 @@ public class Main {
 
 *************************
 Q2]IOT
+tart Raspberry Pi and Execute various Linux commands in command 
+terminal window: ls, cd, touch, mv, rm, man, mkdir, rmdir, tar, gzip, cat, 
+more, less, ps, sudo, cron, chown, chgrp, pingetc. 

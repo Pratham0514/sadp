@@ -1,4 +1,9 @@
 Q1]SADP
+Write a Java Program to implement Strategy Pattern for Duck Behavior. Create   
+instance variable that holds current state of Duck from there, we just need to handle 
+all Flying Behaviors and Quack Behavior 
+
+
 interface DuckB
 {
 public void oper();
@@ -42,6 +47,14 @@ c1.est();
 }
 ****************************
 Q2]iot
+Write python programs on Pi like:                                                                                    
+a) Print a name 'n' times, where name and n are read from standard input, using for and 
+while loops.                                                                                                                       
+b) Handle Divided by Zero Exception.                                                                             
+c) Print current time for 10 times with an interval of10seconds.                                       
+d) Read a fileline byline and print the word count of each line 
+
+
 # print_name_n_times.py  
 name = input("Enter your name: ")  
 n = int(input("How many times to print your name? "))  

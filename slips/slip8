@@ -1,0 +1,291 @@
+sadp  
+Write a Java Program to implement State Pattern for Gumball Machine. 
+Create instance variable that holds current state from there, we just need to handle all 
+actions, behaviors and state transition that can happen 
+// Full Gumball Machine State Pattern Implementation
+
+// -------- State Interface --------
+interface State {
+    void insertCoin();
+    void ejectCoin();
+    void turnCrank();
+    void dispense();
+}
+
+// -------- NoCoinState --------
+class NoCoinState implements State {
+
+    private GumballMachine machine;
+
+    public NoCoinState(GumballMachine machine) {
+        this.machine = machine;
+    }
+
+    @Override
+    public void insertCoin() {
+        System.out.println("Coin inserted.");
+        machine.setState(machine.getHasCoinState());
+    }
+
+    @Override
+    public void ejectCoin() {
+        System.out.println("You haven't inserted a coin.");
+    }
+
+    @Override
+    public void turnCrank() {
+        System.out.println("Turned crank, but no coin!");
+    }
+
+    @Override
+    public void dispense() {
+        System.out.println("Insert a coin first.");
+    }
+}
+
+// -------- HasCoinState --------
+class HasCoinState implements State {
+
+    private GumballMachine machine;
+
+    public HasCoinState(GumballMachine machine) {
+        this.machine = machine;
+    }
+
+    @Override
+    public void insertCoin() {
+        System.out.println("A coin is already inserted.");
+    }
+
+    @Override
+    public void ejectCoin() {
+        System.out.println("Coin returned.");
+        machine.setState(machine.getNoCoinState());
+    }
+
+    @Override
+    public void turnCrank() {
+        System.out.println("Crank turned...");
+        machine.setState(machine.getSoldState());
+    }
+
+    @Override
+    public void dispense() {
+        System.out.println("Turn the crank first.");
+    }
+}
+
+// -------- SoldState --------
+class SoldState implements State {
+
+    private GumballMachine machine;
+
+    public SoldState(GumballMachine machine) {
+        this.machine = machine;
+    }
+
+    @Override
+    public void insertCoin() {
+        System.out.println("Please wait… dispensing already.");
+    }
+
+    @Override
+    public void ejectCoin() {
+        System.out.println("Can't eject, crank already turned.");
+    }
+
+    @Override
+    public void turnCrank() {
+        System.out.println("Turning twice won't get another gumball!");
+    }
+
+    @Override
+    public void dispense() {
+        machine.releaseBall();
+        if (machine.getCount() > 0) {
+            machine.setState(machine.getNoCoinState());
+        } else {
+            System.out.println("Oops! Machine is out of gumballs.");
+            machine.setState(machine.getSoldOutState());
+        }
+    }
+}
+
+// -------- SoldOutState --------
+class SoldOutState implements State {
+
+    private GumballMachine machine;
+
+    public SoldOutState(GumballMachine machine) {
+        this.machine = machine;
+    }
+
+    @Override
+    public void insertCoin() {
+        System.out.println("Machine is sold out. Coin rejected.");
+    }
+
+    @Override
+    public void ejectCoin() {
+        System.out.println("No coin inserted.");
+    }
+
+    @Override
+    public void turnCrank() {
+        System.out.println("Machine is empty!");
+    }
+
+    @Override
+    public void dispense() {
+        System.out.println("No gumball dispensed.");
+    }
+}
+
+// -------- GumballMachine (Context) --------
+class GumballMachine {
+
+    private State noCoinState;
+    private State hasCoinState;
+    private State soldState;
+    private State soldOutState;
+
+    private State currentState;
+    private int count;
+
+    public GumballMachine(int numberOfGumballs) {
+        noCoinState = new NoCoinState(this);
+        hasCoinState = new HasCoinState(this);
+        soldState = new SoldState(this);
+        soldOutState = new SoldOutState(this);
+
+        this.count = numberOfGumballs;
+
+        currentState = (count > 0) ? noCoinState : soldOutState;
+    }
+
+    public void insertCoin() {
+        currentState.insertCoin();
+    }
+
+    public void ejectCoin() {
+        currentState.ejectCoin();
+    }
+
+    public void turnCrank() {
+        currentState.turnCrank();
+        currentState.dispense();
+    }
+
+    public void releaseBall() {
+        if (count > 0) {
+            System.out.println("A gumball rolls out...");
+            count--;
+        }
+    }
+
+    // Getter methods
+    public State getNoCoinState() { return noCoinState; }
+    public State getHasCoinState() { return hasCoinState; }
+    public State getSoldState() { return soldState; }
+    public State getSoldOutState() { return soldOutState; }
+
+    public int getCount() { return count; }
+
+    public void setState(State state) {
+        this.currentState = state;
+    }
+}
+
+// -------- Demo (Main Class) --------
+public class GumballMachineDemo {
+    public static void main(String[] args) {
+
+        GumballMachine machine = new GumballMachine(2);
+
+        machine.insertCoin();
+        machine.turnCrank();
+
+        machine.insertCoin();
+        machine.ejectCoin();
+
+        machine.insertCoin();
+        machine.turnCrank();
+
+        machine.insertCoin();
+        machine.turnCrank();
+    }
+}
+
+
+
+
+iot
+Start Raspberry Pi and execute various Linux commands in command terminal window:           
+ls, cd, touch, mv, rm, man, mkdir, rmdir, tar, gzip, cat, more, less, ps, sudo, cron, chown, 
+chgrp, pingetc. 
+
+import subprocess
+
+# Function to run any Linux command
+def run_cmd(command):
+    print(f"\n>>> Running: {command}")
+    try:
+        result = subprocess.run(command, shell=True, text=True, capture_output=True)
+        print(result.stdout)
+        if result.stderr:
+            print("Error:", result.stderr)
+    except Exception as e:
+        print("Exception:", e)
+
+
+# ---------------------------
+# COMMON RASPBERRY PI COMMANDS
+# ---------------------------
+
+run_cmd("ls")                 # list files
+run_cmd("pwd")                # present working directory
+run_cmd("mkdir testfolder")   # create folder
+run_cmd("ls")
+
+run_cmd("touch testfile.txt") # create empty file
+run_cmd("ls")
+
+run_cmd("mv testfile.txt testfolder/")  # move file
+run_cmd("ls testfolder")
+
+run_cmd("cp testfolder/testfile.txt copy.txt")  # copy file
+run_cmd("ls")
+
+run_cmd("rm copy.txt")        # remove file
+run_cmd("ls")
+
+run_cmd("man ls")             # manual page
+
+run_cmd("rmdir testfolder")   # remove empty directory? (won’t work because file inside)
+run_cmd("rm testfolder/testfile.txt")
+run_cmd("rmdir testfolder")
+
+run_cmd("echo 'Hello' > sample.txt")
+run_cmd("cat sample.txt")     # print file content
+run_cmd("more sample.txt")    # page view
+run_cmd("less sample.txt")    # scroll view
+
+run_cmd("ps")                 # process status
+
+run_cmd("sudo apt update")    # sudo command example
+
+# CRON JOB example: List Cron table
+run_cmd("crontab -l")
+
+# Change owner and group (example)
+run_cmd("sudo chown pi sample.txt")
+run_cmd("sudo chgrp pi sample.txt")
+
+# PING example
+run_cmd("ping -c 3 google.com")
+
+# TAR & GZIP
+run_cmd("tar -cvf backup.tar sample.txt")
+run_cmd("gzip backup.tar")
+
+run_cmd("ls")

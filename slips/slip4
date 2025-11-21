@@ -1,4 +1,9 @@
 Q1]SADP
+Write a Java Program to implement Factory method for Pizza Store with createPizza(), 
+orederPizza(), prepare(), Bake(), cut(), box(). Use this to create variety of pizza’s 
+like NyStyleCheesePizza, ChicagoStyleCheesePizza etc. 
+
+
 import java.util.*;
 
 // ---- Abstract Product: Pizza ----
@@ -120,3 +125,27 @@ public class Main {
 }
 
 Q2]iot
+Write a program to sense a finger when it is placed on the board Arduino. 
+
+
+int touchPin = 2;      
+int ledPin = 13;       
+
+void setup() {
+  pinMode(touchPin, INPUT);
+  pinMode(ledPin, OUTPUT);
+  Serial.begin(9600);
+}
+
+void loop() {
+  int touchState = digitalRead(touchPin);
+
+  if (touchState == HIGH) {
+    Serial.println("Finger detected!");
+    digitalWrite(ledPin, HIGH); 
+  } else {
+    digitalWrite(ledPin, LOW);
+  }
+
+  delay(50);
+}

@@ -1,4 +1,9 @@
 Q1]SADP
+Write a java program to implement Adapter pattern to design Heart Model to Beat 
+Model 
+
+
+
 import java.util.*;
 
 // --- MODEL INTERFACE ---
@@ -160,6 +165,13 @@ public class Main {
 }
 *****************
 Q2]IOT
+Run some python programs on Pi like  
+a) Light an LED through Python program 
+b) Get input from two switches and switch on corresponding LEDs  
+c) Flash an LED at a given on time and off time cycle, where the two times are taken      
+from a file 
+
+
 Program 1  
 # Program to interface LED to Raspberrry Pi  
 import RPi.GPIO as GPIO  

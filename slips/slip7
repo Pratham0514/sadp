@@ -1,4 +1,7 @@
 Q1]SADP
+Write a Java Program to implement undo command to test Ceiling fan.
+
+
 interface Command {
 public void execute();
 }
@@ -53,6 +56,10 @@ remote.buttonWasPressed();
 }
 ***************
 Q2]iot
+Write a program for LDR to vary the light intensity of LED using 
+Arduino. 
+
+
 // Pin Definitions  
 #define LDR_PIN A0     // LDR connected to analog pin A0  
 #define LED_PIN D4     // LED connected to digital pin D4 (GPIO2)  
