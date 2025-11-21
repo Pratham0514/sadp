@@ -1,6 +1,4 @@
-
-/* save by the name  Main.java  */
-
+Q1]SADP
 
 class Amplifier {
     public void on() { System.out.println("Amplifier ON"); }
@@ -105,3 +103,5 @@ public class Main {
     }
 }
 
+*********************
+Q2]IOT

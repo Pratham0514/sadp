@@ -1,7 +1,4 @@
-/*  save this by    Main.java  */
-
-
-
+Q1]SADP
 import java.util.Observable;
 import java.util.Observer;
 class CurrentConditionsDisplay implements Observer, DisplayElement {
@@ -153,81 +150,28 @@ weatherData.setMeasurements(82, 70, 29.2f);
 weatherData.setMeasurements(78, 90, 29.2f);
 }
 }
-
-
-
-
-
-
-
-
-/*   save this by  WeatherStation.java      */
-
-import java.util.Observable;
-import java.util.Observer;
-
-// WeatherData class extends Observable
-class WeatherData extends Observable {
-    private float temperature;
-    private float humidity;
-    private float pressure;
-
-    public void setMeasurements(float temperature, float humidity, float pressure) {
-        this.temperature = temperature;
-        this.humidity = humidity;
-        this.pressure = pressure;
-        measurementsChanged();
-    }
-
-    public void measurementsChanged() {
-        setChanged(); // mark the observable as changed
-        notifyObservers(); // notify all observers
-    }
-
-    public float getTemperature() {
-        return temperature;
-    }
-
-    public float getHumidity() {
-        return humidity;
-    }
-
-    public float getPressure() {
-        return pressure;
-    }
-}
-
-// Display class implements Observer
-class CurrentConditionsDisplay implements Observer {
-    private float temperature;
-    private float humidity;
-
-    public void update(Observable obs, Object arg) {
-        if (obs instanceof WeatherData) {
-            WeatherData weatherData = (WeatherData) obs;
-            this.temperature = weatherData.getTemperature();
-            this.humidity = weatherData.getHumidity();
-            display();
-        }
-    }
-
-    public void display() {
-        System.out.println("Current conditions: " + temperature + "°C and " + humidity + "% humidity");
-    }
-}
-
-// Main class
-public class WeatherStation {
-    public static void main(String[] args) {
-        WeatherData weatherData = new WeatherData();
-        CurrentConditionsDisplay display = new CurrentConditionsDisplay();
-
-        // Register observer
-        weatherData.addObserver(display);
-
-        // Simulate new weather readings
-        weatherData.setMeasurements(30.0f, 65.0f, 1013.1f);
-        weatherData.setMeasurements(28.5f, 70.0f, 1012.5f);
-    }
-}
-
+*********************
+Q2]IOT
+// Pin Definitions  
+#define LDR_PIN A0     // LDR connected to analog pin A0  
+#define LED_PIN D4     // LED connected to digital pin D4 (GPIO2)  
+void setup() {  
+Serial.begin(115200);      
+// Start serial monitor   pinMode(LED_PIN, 
+OUTPUT);  // Set LED pin as output  
+}  
+void loop() {   int ldrValue = analogRead(LDR_PIN);  // Read analog 
+value from LDR  
+Serial.print("LDR Value: ");  
+Serial.println(ldrValue);  
+// Adjust threshold as needed. Lower value = brighter environment   int 
+threshold = 500;  
+if (ldrValue < threshold) {     
+LED (LOW = OFF for D4 on  
+NodeMCU)  
+} else {  
+digitalWrite(LED_PIN, LOW);  // Turn OFF 
+digitalWrite(LED_PIN, HIGH); // Turn ON LED  
+}  
+delay(500); // Delay for stability  
+} 
